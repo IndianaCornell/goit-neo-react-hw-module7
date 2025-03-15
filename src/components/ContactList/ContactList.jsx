@@ -1,20 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import clsx from "clsx";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import css from "./ContactList.module.css";
 
 import Contact from "../Contact/Contact";
 
-import { getAllContacts } from "../../redux/contactsOps";
-
 function ContactList() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllContacts());
-  }, [dispatch]);
-
   const contacts = useSelector((state) => state.contacts.items);
   const filter = useSelector((state) => state.filter);
 
