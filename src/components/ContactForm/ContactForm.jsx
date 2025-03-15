@@ -20,7 +20,6 @@ const contactSchema = Yup.object().shape({
 });
 
 function ContactForm() {
-  const contacts = useSelector((state) => state.contacts);
   const dispatch = useDispatch();
 
   const nameFieldId = useId();
@@ -33,7 +32,10 @@ function ContactForm() {
   return (
     <Formik
       initialValues={{ name: "", number: "" }}
-      onSubmit={toAdd}
+      onSubmit={(values, actions) => {
+        toAdd(values);
+        actions.resetForm();
+      }}
       validationSchema={contactSchema}
     >
       <Form className={clsx(css.contactForm)}>

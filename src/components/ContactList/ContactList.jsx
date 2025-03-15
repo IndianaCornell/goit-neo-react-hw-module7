@@ -21,10 +21,16 @@ function ContactList() {
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
   return (
     <ul className={clsx(css.contactList)}>
       {visibleContacts.map((contact) => (
-        <Contact key={contact.id} name={contact.name} number={contact.number} />
+        <Contact
+          key={contact.id}
+          name={contact.name}
+          number={contact.number}
+          id={contact.id}
+        />
       ))}
     </ul>
   );

@@ -19,7 +19,13 @@ function Contact({ name, number, id }) {
         <span>📞</span>
         <span>{number}</span>
       </div>
-      <button onClick={() => dispatch(removeContact)}>Delete</button>
+      <button
+        onClick={() => {
+          dispatch(removeContact(id));
+        }}
+      >
+        Delete
+      </button>
     </li>
   );
 }
