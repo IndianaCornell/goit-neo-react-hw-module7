@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 import css from "./ContactForm.module.css";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { postContact } from "../../redux/contactsOps";
 
 const contactSchema = Yup.object().shape({
