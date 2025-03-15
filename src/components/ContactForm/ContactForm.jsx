@@ -2,22 +2,22 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import clsx from "clsx";
-// import * as Yup from "yup";
+import * as Yup from "yup";
 
 import css from "./ContactForm.module.css";
 
 import { useDispatch } from "react-redux";
 import { postContact } from "../../redux/contactsOps";
 
-// const contactSchema = Yup.object().shape({
-//   name: Yup.string()
-//     .min(3, "Too Short!")
-//     .max(50, "Too Long!")
-//     .required("Required"),
-//   number: Yup.string()
-//     .matches(/^\+?\d{3,50}$/, "Invalid phone number")
-//     .required("Required"),
-// });
+const contactSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  number: Yup.string()
+    .matches(/^\+?\d{3,50}$/, "Invalid phone number")
+    .required("Required"),
+});
 
 function ContactForm() {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ function ContactForm() {
         toAdd(values);
         actions.resetForm();
       }}
-      // validationSchema={contactSchema}
+      validationSchema={contactSchema}
     >
       <Form className={clsx(css.contactForm)}>
         <div className={clsx(css.contactField)}>
