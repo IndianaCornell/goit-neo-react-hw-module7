@@ -1,0 +1,9 @@
+.contactLabel {
+  border: 1px solid #535353;
+  width: 200px;
+  height: 20px;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(156, 156, 156 0.5);
+  margin-bottom: 20px;
+}
